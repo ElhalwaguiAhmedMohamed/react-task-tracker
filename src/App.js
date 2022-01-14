@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 function App() {
+  //App component that could be a class
+  //only can return one parent element
+
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      text: "Calling",
+      day: "Feb 5th at 2:30",
+      reminder: false,
+    },
+    {
+      id: 2,
+      text: "Eating",
+      day: "Feb 6th at 2:30",
+      reminder: true,
+    },
+    {
+      id: 3,
+      text: "Food Shopping",
+      day: "Feb 7th at 1:30",
+      reminder: false,
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Tasks tasks={tasks} />
     </div>
   );
 }
